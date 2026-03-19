@@ -82,3 +82,39 @@
     max-width: 85%;
   }
 }
+
+/* Markdown Specific Styling */
+.message-content.markdown-content {
+  white-space: normal;
+}
+
+.markdown-content p {
+  margin: 0 0 0.75rem 0;
+}
+
+.markdown-content p:last-child {
+  margin-bottom: 0;
+}
+
+.markdown-content ul, .markdown-content ol {
+  margin: 0 0 0.75rem 0;
+  padding-left: 1.5rem;
+}
+
+.markdown-content li {
+  margin-bottom: 0.25rem;
+}
+
+.markdown-content strong {
+  color: var(--bot-bubble-text);
+  font-weight: 600;
+}
+
+.markdown-content h1, .markdown-content h2, .markdown-content h3 {
+  margin: 1rem 0 0.5rem 0;
+  font-size: 1.1em;
+}
+
+.markdown-content h1:first-child, .markdown-content h2:first-child, .markdown-content h3:first-child {
+  margin-top: 0;
+}

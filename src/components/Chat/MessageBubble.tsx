@@ -1,5 +1,6 @@
 import React from 'react';
 import './MessageBubble.css';
+import ReactMarkdown from 'react-markdown';
 import type { Message } from './ChatContainer';
 
 interface MessageBubbleProps {
@@ -18,8 +19,8 @@ const MessageBubble: React.FC<MessageBubbleProps> = ({ message }) => {
       )}
       
       <div className={`message-bubble ${isUser ? 'user-message' : 'bot-message'}`}>
-        <div className="message-content">
-          {message.content}
+        <div className="message-content markdown-content">
+          <ReactMarkdown>{message.content}</ReactMarkdown>
         </div>
         <div className="message-time">
           {new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
