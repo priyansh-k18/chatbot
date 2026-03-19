@@ -5,7 +5,7 @@ import InputArea from './InputArea';
 import MessageBubble from './MessageBubble';
 import TypingIndicator from './TypingIndicator';
 
-import { simulateAIStream } from '../../services/mockAiService';
+import { streamGeminiResponse } from '../../services/geminiService';
 
 export interface Message {
   id: string;
@@ -38,7 +38,7 @@ const ChatContainer: React.FC = () => {
       setIsTyping(false);
       setMessages(prev => [...prev, { id: botMsgId, role: 'assistant', content: '' }]);
       
-      simulateAIStream(
+      streamGeminiResponse(
         text,
         (chunk) => {
           setMessages(prev => prev.map(msg => 
@@ -49,6 +49,14 @@ const ChatContainer: React.FC = () => {
         },
         () => {
           // completion
+        },
+        (errorMsg) => {
+          // If an error occurs, show it in the chat bubble
+          setMessages(prev => prev.map(msg => 
+            msg.id === botMsgId 
+              ? { ...msg, content: errorMsg }
+              : msg
+          ));
         }
       );
     }, 1200); // Initial 1.2s delay to simulate 'thinking'
