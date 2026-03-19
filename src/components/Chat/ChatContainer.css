@@ -17,7 +17,7 @@
 .chat-header {
   padding: 1.5rem 2rem;
   border-bottom: 1px solid var(--border-color);
-  background: rgba(255, 255, 255, 0.4);
+  background: var(--header-bg);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -57,6 +57,13 @@
   flex-direction: column;
 }
 
+.chat-scroll-area::after {
+  content: "";
+  display: block;
+  min-height: 3rem;
+  flex-shrink: 0;
+}
+
 .messages-list {
   display: flex;
   flex-direction: column;
@@ -65,7 +72,7 @@
 
 .chat-footer {
   padding: 1.5rem 2rem;
-  background: rgba(255, 255, 255, 0.6);
+  background: var(--footer-bg);
   border-top: 1px solid var(--border-color);
   backdrop-filter: var(--surface-blur);
   z-index: 10;

@@ -16,7 +16,16 @@ export interface Message {
 const ChatContainer: React.FC = () => {
   const [messages, setMessages] = useState<Message[]>([]);
   const [isTyping, setIsTyping] = useState(false);
+  const [isDark, setIsDark] = useState(() => document.documentElement.getAttribute('data-theme') === 'dark');
   const messagesEndRef = useRef<HTMLDivElement>(null);
+
+  const toggleTheme = () => {
+    setIsDark(prev => {
+      const newTheme = !prev;
+      document.documentElement.setAttribute('data-theme', newTheme ? 'dark' : 'light');
+      return newTheme;
+    });
+  };
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -76,7 +85,24 @@ const ChatContainer: React.FC = () => {
           <span className="logo-icon">🌿</span>
           <h1>Flora</h1>
         </div>
-        <p className="header-subtitle">Your AI Botanist Buddy</p>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+          <p className="header-subtitle" style={{ margin: 0 }}>Your AI Botanist Buddy</p>
+          <button 
+            onClick={toggleTheme} 
+            aria-label="Toggle Dark Mode"
+            style={{ 
+              background: 'transparent', 
+              border: 'none', 
+              fontSize: '1.25rem', 
+              cursor: 'pointer',
+              padding: '0.25rem',
+              display: 'flex',
+              alignItems: 'center'
+            }}
+          >
+            {isDark ? '☀️' : '🌙'}
+          </button>
+        </div>
       </header>
 
       <div className="chat-scroll-area">

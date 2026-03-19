@@ -17,6 +17,12 @@
   --bot-bubble-bg: #FFFFFF;
   --bot-bubble-text: #1F2E22;
   
+  --header-bg: rgba(255, 255, 255, 0.4);
+  --footer-bg: rgba(255, 255, 255, 0.6);
+  --input-bg: #FFFFFF;
+  --input-disabled: #f9f9f9;
+  --send-bg: #EAF1E7;
+  
   --shadow-sm: 0 4px 12px rgba(46, 69, 50, 0.05);
   --shadow-md: 0 8px 24px rgba(46, 69, 50, 0.08);
   --shadow-lg: 0 16px 48px rgba(46, 69, 50, 0.12);
@@ -83,4 +89,31 @@ input, textarea {
 }
 ::-webkit-scrollbar-thumb:hover {
   background: rgba(121, 156, 112, 0.5);
+}
+
+[data-theme='dark'] {
+  --bg-color: #121A14;
+  --bg-gradient: radial-gradient(circle at top right, #1A261D, #121A14);
+  --surface-color: rgba(22, 33, 25, 0.8);
+  --border-color: rgba(130, 167, 122, 0.15);
+  
+  --text-primary: #E8EFE9;
+  --text-secondary: #A0B2A4;
+  --accent-color: #8EBA84;
+  --accent-hover: #A5D19A;
+  
+  --user-bubble-bg: #405D45;
+  --user-bubble-text: #FFFFFF;
+  --bot-bubble-bg: #1A261D;
+  --bot-bubble-text: #E8EFE9;
+  
+  --header-bg: rgba(22, 33, 25, 0.6);
+  --footer-bg: rgba(22, 33, 25, 0.8);
+  --input-bg: #1A261D;
+  --input-disabled: #121A14;
+  --send-bg: rgba(121, 156, 112, 0.2);
+  
+  --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.2);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.4);
 }
